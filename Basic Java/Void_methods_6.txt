@@ -1,0 +1,104 @@
+PART-6- VOID METHODS:
+
+MATH METHODS-
+In meths, you might have seen functions like sin(pi/2) and log(1/x). First you evaluate the expressions in parenthesis called 
+argument of the function. Then you can evaluate the functionn itself. The java library includes a Math class that provides 
+common mathematical operations. Math is in the java.lang package, so you don't have to import it. You can use, or invoke, Math
+methods like :      -> double root = Math.sqrt(17);
+                       double angle = 1.5;
+                       double height = Math.sin(angle);
+    Arguments of trignometric functions should be in radians. To conert from degrees to radian you can divide by 180 and 
+multiply by pi. Convieniently Math has a constant diuble named PI that contains an approximation of pi.
+Not that PI is the name of the variable, not a method, so it  doesn't have parentheses. The same is true for the constant 
+Math.E, which is approximates Euler's number.
+Converting to and from radians is a common operation, so the Math class provides methods that do it for you.
+    eg:     -> double radians = Math.toRadians(180);
+               double degrees = Math.toDegrees(Math.PI);
+Another useful method is to round, which rounds a floating point value to the nearest integer and returns a long. A long is 
+like an integer, but bigger. More specifically, an int uses 32 bits; the largest value it can hold is 2^31 - 1, which is about
+2 billion. A long uses 64 bits, so largest value is 2^63 - 1, which is about 9 quintillion
+     --> long x = Math.round(Math.PI * 20 );
+--------------------------------------------------------------------------------------------------------------------------------------
+COMPOSITION REVISITED - 
+Just as mathematical functions, Java methods can be composed. That means that you can use one exoression as part of another. 
+For eg, you can use any expression as an argument to a method:
+        --> double x = Math.cos(angle + Math.PI/2.0);
+    This statement divides Math.PI by 2, and adds the result to angle, and computes the cosine of the sum. You can also take 
+the result of one method and put pass it as an argument to another: 
+        --> double y = Math.exp(Math.log(10.0)); // In java log method always uses base e.
+    Some math methods take more than one argument. for eg; Math.pow takes 2 arguments and raises the 1st to the power of the 
+    2nd. When using Math method, it is common error to forget the Math. The error message "cannot find symbol" is confusing, 
+    but the last line provides an useful hint. The complier is looking for pow in the same class where its used. If you don't
+    specify a class name, the compiler looks in the current class.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+ADDING NEW METHODS -
+You have probably guessed by now that you can define more than one method in a class. The name of the class is _06void_methods.
+By convension class name must begin with capitaal letters. _06void_methods contains 2 methods, Newline and main. Newline and
+main are public, which means they can be invoked from other classes. They are both static and they are both void, which means 
+that they don't yeild a result (unlike Math methods). The parenthesis after the method name contains a list of variables, 
+called parameter, where the method stores its arguments. main has single parameter, called args, which has type Strings [].
+That means whoever invokes main must provide an array of strings. Since Newline has no parameters, it requires no arguments, 
+as shown when its invoked in main. And because Newline is in the same class as main, we don't need to specify the class name.
+You can invoke the same method more than once, and you can have one method invoke another. There are many reasons why its 
+worth to create new methods -
+ - Creating a new method gives you an opportunity to give a name to a group of statements, which makes code easier to read and
+ understand.
+ - Introducing new methods can make a program smaller by eliminating repitative code.
+ - A most common problem solving technique is to break task down into sub-problems. Methods allow you to focus on each sub-
+ problem in isolation and then compose them into a complete solution.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+FLOW OF EXECUTION -
+When you look at a class definition that contains several methods, its tempting to read it from top to bottom. But that's 
+likely to be confusing, because that isn't the flow of execution of the program. Execution always begins at first statement of
+main, regardless of where its in source file. Statements are executed one at a time, in order, until you reach a method 
+invocation (call), which you can think as a detour. Instead of going to the next statement, you jump to the first line of the 
+invoked method, execute all statement there, and then come back and pick up exactly where you left off. 
+That sounds simple enough, but remember that one method can invoke another method. In the middle of main, we go off to execute
+the statement in Threeline, we go off to execute Newline. Then newline invokes println, which casues yet another detour.
+Fortunately, Java is good at keeping track of which methods are runnning. In conclusion when you read a program, follow flow 
+of execution.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+PARAMETERS AND ARGUMENTS -
+When you use a method, you provide the arguments. When you write a method, you name the parameters. The parameter list indicates what 
+arguments are required. printTwice has a parameter s with type String. When we invoke printTwice, we have to provide an argument with type
+String. Before the method executes, the argument gets assigned to the parameter. This process is ccalled parameter passing because the 
+value get passed from outside the method to the inside, An argument can be any kind of expression, so if you have a String variable, you 
+can use it as an argument. The value you provide as an argument must have the same type as the parameter.Sometimes Java can convert an argument 
+from one type to another automatically. For example, Math.sqrt requires a double, but if you invoke Math.sqrt(25), the integer value 25 is 
+automatically converted to the ﬂoating-point value 25.0. But in the case of printTwice, Java can’t (or won’t) convertthe integer 17 to a 
+String. 
+Parameters and other variables only esist inside their own methods. Inside main there is no such thing as s. If you try to use it there you
+will get a complier error. Similarly inside printTwice there is no such thing as argument. That variable belongs to main. Becaue variables 
+only exist inside the the methods where they are defined, they are often called local variables.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+MULTIPLE PARAMETERS -
+In the parameter list you may be tempted to write :     public static void printTime(int hours, min)
+But that format (without the 2nd int) is only legal for variable declarations. In the parameters lists, you need yo specify the type of 
+each variable seperately. To invoke this method you need to provide 2 integers as as arguments. A common error is to declare the types of 
+arguments like this:
+int hours = 10;
+int min = 47;
+printTime(int hour, int min); // That's a syntax error; the compiler sees int hours and int min as varaible declarations not expressions. 
+You wouldn't declare the type of arguments if they were simply integers. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+STACK DIAGRAMS - 
+Before the method is invoked, Java evaluates the arguments, then it assigns the those values to parameters. Furthurmore, if printTime 
+modifies one of its parameters, that change has no effect on the variable in main. One way to keep track of everything is to draw a stack 
+diagram, which is a state diagram that shows method invocations. For each method, there is a box called frame that contain's the method's 
+parameter and variables. The name of the method appears outside the frame; the variable and parameters appears inside.
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ High level languages have 2 advantages -
   only one type of processor) are low level languages and java,c++,python etc are high level languages.
 
 2 kinds of programs translate high level languages: interpreters and compilers.
-An interpreter reads a high-level program and executes it, meaning that it does waht a program says.It processes 
+An interpreter reads a high-level program and executes it, meaning that it does what a program says. It processes 
 the program a little at a time, alternately reading lines and performing computations.
     source code-------> Interpreter ---------> output
 In contrast, a compiler reads the entire program and translate it completely before the program starts runing. In

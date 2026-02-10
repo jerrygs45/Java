@@ -1,0 +1,6 @@
+*.class
+CRC/
+.git/
+.github/
+.idea/
+out/

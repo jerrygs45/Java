@@ -1,0 +1,91 @@
+--> CONDITIONALS AND LOGIC -
+-> RELATIONAL OPERATORS - They are used to check conditions like weather 2 values are equal, weather one is greater than other.
+    x == y // x is equal to y
+    x != y // x isn't equal to y
+    x > y // x is greater y
+    x < y // x is less than y
+    x >= y // x is greater than equal to y
+    x <= y // x is less than equal to y
+The result of relational operator is one of two special values, true or false. These values belong to data type boolean; infact, they are 
+the only 2 boolean values. Remember that = is the assignment operator, and == is a comparison operator. The 2 sides of relational operators
+have to be compatible. for eg: expression 5 < "6" is invalid because the 5 is int and "6" is String. When comparing values of different 
+numeric types, Java applies the same conversion rule we saw previously with the assignment operator. For eg, when evaluating expression 5 < 
+6.0, Java automatically converts the 5 to 5.0. 
+Most relational operator don't wprk with strings. But confusingly, == and != do work with strings. They just don't do what you expect. 
+Instead you should use the equals method.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+-> LOGICAL OPERATORS -
+Java has 3 logical operators : &&, || and !, which respectively stand for and, or and not. The result of these operators are similar to 
+their usual meanings in English. Logical operators evalutates the 2nd expression only when necessary. For example, true || anything is 
+always true, so Java doesn't need to evaluate the expression anything. LiKewise, false && anything is always false.
+Ignorning the 2nd expression when possible is ca;;ed short circuit evaluation, by analogy with an electric circuit. If you ever have to 
+negate an expression that contains logical operator, and you probalbly will, De Morgan's laws can help: 
+1) ! (A && B) is same as !A || !B
+2) ! (A || B) is same as !A && !B
+Negating a logical expression is the same as negating each term and changing the operator. The ! operator has precedence over && and ||, so\
+you don't have to put parentheses around the individual terms !A and !B.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+-> CONDITIONAL STATEMENTS -
+To write useful programs, we almost always need to check the conditions and react accordingly. Conditional statements gives us this ability.
+The simplest conditional statement in Java is if. The expression in paprenthesis is called the condition. If its true, statement in braces 
+gets gets executed. If the condition is false, execution skips over that block of code. The condition in parentheses can be any boolean 
+expression. 
+A second form of conditional statement has 2 possiblities, if indicated by if and else. The possiblities are called branches, and the 
+condition determines which one gets executed. The braces are optional for branches that have only one statement. However, its better to use
+braces even when they are optional to avoid mistake of adding a statement to an if or else block and forgetting to add braces. 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+-> CHAINING AND NESTING -
+Sometime you want to check related conditions and choose one of several actions. One way to do this is by chaining a series if and else 
+statement. These chains can be as long as you want, although they can be diffcult to read if they get out of hand. One way to make they 
+easier to read is to use standard indentation, as demonstrated in the examples. 
+In addition to chaining, you can also make complex decision by nestinng one coditional statement inside another. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+-> FLAG VARIABLES -
+To store a true or false value, you need a boolean variable. You can create one as shown. The first line is the varibale declaration, the 
+seconnd is an assignment, and the third is both. Since relational operators evaluate to a boolean value, you can store the result of a 
+comparison in a variable.
+A variable defined like ** is called a flag, because it signals or "flags" the presence or absence of a condition. Notice that you don't 
+have write a flag variable as a conditional expressions. Since a flag is boolean, it's already a condition.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+->THE RETURN STATEMENT -
+The return statement is used ot terminate a method before you reach the end of it. One reason to use return is if you detect an error 
+condition. This example deﬁnes a method named printLogarithm that takes a double value (named x) as a parameter. It checks whether x is 
+less than or equal to zero, in which case it displays an error message and then uses return to exit the method. The ﬂow of execution 
+immediately returns to where the method was invoked, and the remaining lines of the method are not executed.
+This example uses System.err, which is an OutputStream normally used for error messages and warnings. Some development environments display
+output to System.err with a diﬀerent color or in a separate window.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-> VALIDIATING INPUT -
+Here is a method that uses printLogarithm from the previous section. This examples uses next double, so the scanner (provided by the main 
+method) tries to read a double. If the user enters a floating point number, the scanner converts it to a double. But is the user types 
+anything else, the scanner throws an InputMismatchException. we can prevent this error by checking the input before parsing it.
+The Scanner class provides hasNextDouble, which check weather the next token in the input stream can be interpreted as a double. If so, we 
+can call nextDouble with no interpreted as a double. If so, we can call nextDouble with no chance of throwing an exception. If not, we 
+display an error message and return. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-> RECURSIVE METHODS -
+Consider the following example. The name of the method is countdown; it takes a single integer as parameter. If the parameter is zero, it 
+displays the word "Blastoff!". Otherwise it displays the number and the invokes itself, passing n-1 as the argument. A method that invokes 
+itself is called recursive. 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-> RECURSIVE STACK DIAGRAM -
+Previously we used a stack diagram to represent the state of a program during a method invocation. The same kind of diagram can make it 
+easier to interpret a recursive method. Remember that evertime a method is called, Java creates a new frame that contains the current 
+method's parameters and variables. By convention, the stack for main is at the top and the stack grows down. The frame for main is empty 
+because main doesn't have any variables. (It has the parameters args, but since we aren't using it, we leave it out of the diagram). There
+are n frames for countdown, each with different value for parameter n. The last frame, with n==0, is called the base case. It doesn't make
+a recursive call, so there are no more frames below it. (use ai to see the structure while giving this prompt or try it youself seeing the
+code).
+If there is no base case in a recursive method, or if the base case is never reached, the stack would grow forever, at least in theory. In
+practice the size of the stack is limited; if you exceed the limit, you get a StackOverflowError.
+
+
+
+
+

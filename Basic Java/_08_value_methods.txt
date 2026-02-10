@@ -1,0 +1,5 @@
+--> VALUE METHODS -
+Some of the methods we have used, like Math methods, return values. But all the methods we have written so far have been void; that's they 
+don't return values. In this, we'll write methods that return values, wich we call value methods.
+
+-> RETURN VALUES -

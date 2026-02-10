@@ -1,0 +1,5 @@
+-->OBJECTS -
+As we know that an object is a collection of data that provides a set of methods. For eg: a String is a 
+collection of characters that provides methods like charAt and substring. As we know Java is object oriented that
+is it uses object to represent data and provides methods related to them. This way of organizing programs is a 
+powerful design concept. 

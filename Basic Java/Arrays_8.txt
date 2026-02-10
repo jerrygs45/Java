@@ -1,0 +1,21 @@
+--> ARRAYS -
+->CREATING ARRAYS -
+An array is a sequence of values; the values in the array are called elements but the values in the array must be
+of similar data type. To create an array, you have to declare a varaible with an array type and the create the 
+array itself. Array types look like other Java types, except they're followed by square brackets ([]). For eg:
+        int [] arr;
+To create array itself, you have to use the new operator. You can use any integer expression for the size of 
+array, as long as the value is non-negative. Iy you try to create an array with -4 elements, for example, you'll
+get a NegativeArraySizeException. An array with zero elements is allowed, and there are special uses for such 
+arrays that we'll see later on.
+---------------------------------------------------------------------------------------------------------------------
+-> ACCESSING ELEMENTS -
+When you create an array of ints, the elements are intialized by zero. The figure below shows a state diagram of
+the counts array so far.
+            counts[] ----> [ 0 | 0 | 0 | 0 ]
+                             0   1   2   3
+The arrow indicates that the value of counts is a reference to the array. Think of the array and the variable 
+that refers to it as two different things. The numbers inside the brackets are elements of array. The small 
+numbers outside the the boxes are called indices used to identify each location in the array. 
+The [] operator selects elements from an array. You can use the [] operator anywhere in the expression.
+

@@ -1,0 +1,58 @@
+--> GIT -
+GIT allows the user to move to any point within a software i.e., to a particular version (version control).
+
+->Version control system - tracks files for changes. Git is a version control system that allows you to track 
+changes to your files and collaborate with others. Its used to manage the history of your code and to merge 
+changes from different branches.
+- Version controls systems are used to manage the history of your code. They allow you to track changes to your 
+file and to collaborate with others, version control system are essential for software development. 
+- Consider version control as check point in a game. You can move to any point in the game and you can always go 
+back to the previous check point. This is the same concept in software development.
+- Before git became mainstream, version control systems were used by developers to manage their code. They were 
+used by developers to manage their code. They were called SCCS (SOurce code control system). SCCS was a 
+proprietary software that was used to manage the history of code. It was expensive and not very friendly. Git was 
+created to replace SCCS and to make version control more accessible and user friendly. Some common version 
+control systems are Subversion (SVN), CVS and perforce, Mercury.
+
+-> GIT and GITHUB are different - 
+- Git is version control system that is used to track changes to your files. Its a free and open source software
+that is available for window, macOS and linux. Remember git is a software that can be installed on your computer.
+- Github is a web based hosting service for git repositories. Github is an online platform that allows you to 
+store and share your code with others. Its a popular platform for developers to collab on projects and to share 
+code. Its not that Github is the only provider of git repositories but one of the most popular ones.
+
+-> Terminology - 
+- To check the version, you can rin the following command : (git --version) ot (git -v)
+This command will display the version of git installed on your system. Git is a very stable software and don't 
+get any breaking changes in majority of cases.
+
+- Repository : A repository is a collection of files and directories that are stored togeather. Its a way to 
+store and manage your code. A repository is like a folder on your computer, but its more than just a folder. It 
+can contain other files, folder and even other reepositories. You can think of a repository as a container that 
+holds all your code.
+    - There's a difference between a software on your software vs tracking a particular folder on your system. At
+    any point you can run the following command to see the current state of your repository - (git status).
+    Not all folder are meant to be tracked by git.
+
+-> Your configuration settings - 
+- Git has a lot of settings that you can change. You can change your username, email and other settings. Whenever
+you check point your changes, git will add some information about your such as your username and email to commit.
+There's a git config file that stores all the setting that you have changed. You can make settings like what 
+editor you would like to use etc. There are some global setting and some repository specific settings.
+(git config --global user.email "your_email@example.com")...
+(git config --global user.name "your name")...
+- Now you can check your config settings 
+(git config --list) - this will show you all the settings that you have changed.
+
+
+-> Creating a repository -
+Creating a repository is creating a new folder on your system and initializing it as a git repository. Its just a
+regular folder to code your projecct, you are just asking git to track it. To create a repository, you can use 
+the following command - (git status) - shows the current state of your repository. (git init) - command will 
+create a new folder on your system and initialize it as a git repository. This adds a hidden .git folder on your
+project.
+
+
+
+
+

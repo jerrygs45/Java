@@ -64,7 +64,7 @@ public class LambdaFunction {
 
         // 2) Consumer <T> - Where T is void, used for actions, pinting, logging :
         Consumer <String> print = s -> System.out.println(s);
-        print.accept("Hello b!tch");
+        print.accept("Hello bruv");
 
         // 3) Function <T,R> - Where T is R, used for transformations :
         Function <Integer, Integer> square = n -> n*n;
